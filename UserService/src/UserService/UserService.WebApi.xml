@@ -1,0 +1,347 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UserService</name>
+    </assembly>
+    <members>
+        <member name="T:UserService.Authentication.Features.UserLoginCommand">
+            <summary>
+            User login command.
+            </summary>
+        </member>
+        <member name="T:UserService.Authentication.Features.UserLoginCommandHandler">
+            <summary>
+            Command handler
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.AuthenticatedUser.Id">
+            <summary>
+            Gets or sets the identifier
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.AuthenticatedUser.Name">
+            <summary>
+            Gets or sets the name
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.AuthenticatedUser.Email">
+            <summary>
+            Gets or sets the email
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.AuthenticatedUser.Role">
+            <summary>
+            Gets or sets the role
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.AuthenticatedUser.Permissions">
+            <summary>
+            Gets or sets the permissions
+            </summary>
+        </member>
+        <member name="T:UserService.Authentication.Models.LoginResponseModel">
+            <summary>
+            Login response model
+            </summary>
+        </member>
+        <member name="M:UserService.Authentication.Models.LoginResponseModel.#ctor(System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="token">Security token</param>
+            <param name="expiration">The date the <see cref="P:UserService.Authentication.Models.LoginResponseModel.Token"/> expires</param>
+        </member>
+        <member name="P:UserService.Authentication.Models.LoginResponseModel.Token">
+            <summary>
+            Gets the security token
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.TokenSettings.EncryptionKey">
+            <summary>
+            Gets the encryption key
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.TokenSettings.Expiration">
+            <summary>
+            Gets the date when the session will expire
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.TokenSettings.Issuer">
+            <summary>
+            Gets or sets the issuer
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.UserLoginModel.Email">
+            <summary>
+            Gets or sets the email
+            </summary>
+        </member>
+        <member name="P:UserService.Authentication.Models.UserLoginModel.Password">
+            <summary>
+            Gets or sets the password
+            </summary>
+        </member>
+        <member name="M:UserService.Authentication.Services.AuthenticationService.SetClaimsAsync(UserService.Domain.Users.User)">
+            <summary>
+            Set user claims
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserService.Authentication.Services.AuthenticationService.GetUserClaimsAsync(UserService.Domain.Users.User)">
+            <summary>
+            Get the user claims
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserService.Authentication.Services.AuthenticationService.GetRoleClaims(System.Collections.Generic.List{System.Security.Claims.Claim},UserService.Domain.Roles.Role)">
+            <summary>
+            Get role claims
+            </summary>
+            <param name="claims"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserService.Authentication.Services.AuthenticationService.IsRequestAvailable">
+            <summary>
+            Check if the httopcontext is correctly initialized
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UserService.Authentication.Services.AuthenticationService.GenerateToken(System.Collections.Generic.List{System.Security.Claims.Claim})">
+            <summary>
+            Generate the jwt token
+            </summary>
+            <param name="claims"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserService.Authentication.Services.AuthenticationService.AuthenticateAsync(UserService.Domain.Users.User,System.Threading.CancellationToken)">
+            <summary>
+            Generate authentication token for user
+            </summary>
+            <param name="user"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:UserService.Authentication.Services.AuthenticationService.CacheAuthenticatedUser(System.String,UserService.Authentication.Models.AuthenticatedUser,System.Threading.CancellationToken)">
+            <summary>
+            Cache the authenticated user
+            </summary>
+            <param name="key"></param>
+            <param name="authenticatedUser"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserService.Authentication.Services.AuthenticationService.SignClientOutAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Remove cached client from distributed cache
+            </summary>
+            <param name="clientId"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserService.Controllers.v1.PermissionsController.GetPermissions">
+            <summary>
+            Gets a list of all available permissions.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.PermissionsController.GetAssignedPermissions">
+            <summary>
+            Gets a list of the current user's assigned permissions.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.RolePermissionsController.GetRolePermissions(UserService.Domain.RolePermissions.Dtos.RolePermissionParametersDto)">
+            <summary>
+            Gets a list of all claims for a role.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.RolePermissionsController.AddRolePermission(UserService.Domain.RolePermissions.Dtos.PostRolePermissionDto)">
+            <summary>
+            Add a new claim to a role.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.RolePermissionsController.DeleteRolePermission(UserService.Domain.RolePermissions.Dtos.PostRolePermissionDto)">
+            <summary>
+            Deletes an existing claim from a role.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.RolesController.GetRoles">
+            <summary>
+            Gets a list of all available roles.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.UsersController.AddRole(System.Guid,System.String)">
+            <summary>
+            Adds a new role to a user.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.UsersController.RemoveRole(System.Guid,System.String)">
+            <summary>
+            Removes a role from a User
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.UsersController.GetUsers(UserService.Domain.Users.Dtos.UserParametersDto)">
+            <summary>
+            Gets a list of all Users.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.UsersController.GetUser(System.Guid)">
+            <summary>
+            Gets a single User by ID.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.UsersController.AddUser(UserService.Domain.Users.Dtos.PostUserDto)">
+            <summary>
+            Creates a new User record.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.UsersController.UpdateUser(System.Guid,UserService.Domain.Users.Dtos.PostUserDto)">
+            <summary>
+            Updates an entire existing User.
+            </summary>
+        </member>
+        <member name="M:UserService.Controllers.v1.UsersController.DeleteUser(System.Guid)">
+            <summary>
+            Deletes an existing User record.
+            </summary>
+        </member>
+        <member name="M:UserService.Databases.EntityConfigurations.RoleConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{UserService.Domain.Roles.Role})">
+            <summary>
+            The db configuration for the Users. 
+            </summary>
+        </member>
+        <member name="M:UserService.Databases.EntityConfigurations.RolePermissionConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{UserService.Domain.RolePermissions.RolePermission})">
+            <summary>
+            The database configuration for RolePermissions. 
+            </summary>
+        </member>
+        <member name="M:UserService.Databases.EntityConfigurations.UserConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{UserService.Domain.Users.User})">
+            <summary>
+            The db configuration for the Users. 
+            </summary>
+        </member>
+        <member name="M:UserService.Databases.EntityConfigurations.UserRoleConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{UserService.Domain.Users.UserRole})">
+            <summary>
+            The database configuration for UserRoles. 
+            </summary>
+        </member>
+        <member name="T:UserService.Domain.Roles.Mappings.RoleMapper">
+            <summary>
+            Role mapping class
+            </summary>
+        </member>
+        <member name="M:UserService.Extensions.Services.WebAppServiceConfiguration.AddBoundaryServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])">
+            <summary>
+            Registers all services in the assembly of the given interface.
+            </summary>
+        </member>
+        <member name="T:UserService.Migrations.Init">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:UserService.Migrations.IdentityChanges">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.IdentityChanges.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.IdentityChanges.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.IdentityChanges.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:UserService.Protos.UserServiceReflection">
+            <summary>Holder for reflection information generated from Protos/UserService.proto</summary>
+        </member>
+        <member name="P:UserService.Protos.UserServiceReflection.Descriptor">
+            <summary>File descriptor for Protos/UserService.proto</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.EmailFieldNumber">
+            <summary>Field number for the "email" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.FirstNameFieldNumber">
+            <summary>Field number for the "first_name" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.LastNameFieldNumber">
+            <summary>Field number for the "last_name" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.MinDailyGoalFieldNumber">
+            <summary>Field number for the "min_daily_goal" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.MaxDailyGoalFieldNumber">
+            <summary>Field number for the "max_daily_goal" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.SortByFieldNumber">
+            <summary>Field number for the "sort_by" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.DescendingFieldNumber">
+            <summary>Field number for the "descending" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.PageNumberFieldNumber">
+            <summary>Field number for the "page_number" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.PageSizeFieldNumber">
+            <summary>Field number for the "page_size" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserParametersRequest.UserIdsFieldNumber">
+            <summary>Field number for the "user_ids" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserListResponse.UsersFieldNumber">
+            <summary>Field number for the "users" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserListResponse.TotalCountFieldNumber">
+            <summary>Field number for the "total_count" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserListResponse.PageNumberFieldNumber">
+            <summary>Field number for the "page_number" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserListResponse.PageSizeFieldNumber">
+            <summary>Field number for the "page_size" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserDto.IdFieldNumber">
+            <summary>Field number for the "id" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserDto.FirstNameFieldNumber">
+            <summary>Field number for the "first_name" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserDto.LastNameFieldNumber">
+            <summary>Field number for the "last_name" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserDto.EmailFieldNumber">
+            <summary>Field number for the "email" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserDto.UserNameFieldNumber">
+            <summary>Field number for the "user_name" field.</summary>
+        </member>
+        <member name="F:UserService.Protos.UserDto.DailyGoalFieldNumber">
+            <summary>Field number for the "daily_goal" field.</summary>
+        </member>
+        <member name="P:UserService.Protos.UserService.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:UserService.Protos.UserService.UserServiceBase">
+            <summary>Base class for server-side implementations of UserService</summary>
+        </member>
+        <member name="M:UserService.Protos.UserService.BindService(UserService.Protos.UserService.UserServiceBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="M:UserService.Protos.UserService.BindService(Grpc.Core.ServiceBinderBase,UserService.Protos.UserService.UserServiceBase)">
+            <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
+            Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+            <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+    </members>
+</doc>

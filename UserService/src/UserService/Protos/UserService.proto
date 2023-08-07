@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option csharp_namespace = "UserService.Protos";
+
+service UserService {
+    rpc GetUserList (UserParametersRequest) returns (UserListResponse);
+}
+
+message UserParametersRequest {
+    string email = 1;
+    string first_name = 2;
+    string last_name = 3;
+    int32 min_daily_goal = 4;
+    int32 max_daily_goal = 5;
+    string sort_by = 6;
+    bool descending = 7;
+    int32 page_number = 8;
+    int32 page_size = 9;
+    repeated string user_ids = 10;
+}
+
+message UserListResponse {
+    repeated UserDto users = 1;
+    int32 total_count = 2;
+    int32 page_number = 3;
+    int32 page_size = 4;
+}
+
+message UserDto {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    string user_name = 5;
+    int32 daily_goal = 6;
+}

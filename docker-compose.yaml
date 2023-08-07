@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  userservice-db:
+    image: postgres
+    restart: always
+    ports:
+      - '51027:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: db2qw2323D
+      POSTGRES_DB: dev_userservice
+    volumes:
+      - userservice-data:/var/lib/postgresql/data
+
+  userservice-app:  
+    image: flaviok03/usersapp  
+    ports:
+      - '5360:5360'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__UserSevice=Host=Host=userservice-db;Port=5432;Database=dev_userservice;Username=postgres;Password=db2qw2323D;
+    depends_on:
+      - userservice-db
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "52034:5775/udp"
+      - "52033:6831/udp"
+      - "52035:6832/udp"
+      - "52036:5778"
+      - "52037:16686"
+      - "52038:14250"
+      - "52039:14268"
+      - "52040:14269"
+      - "52041:9411"
+
+volumes:
+  userservice-data:  # Define volume for Postgres data persistence
