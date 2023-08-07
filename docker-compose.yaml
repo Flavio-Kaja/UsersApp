@@ -19,7 +19,7 @@ services:
       - '5360:5360'
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__UserSevice=Host=Host=userservice-db;Port=5432;Database=dev_userservice;Username=postgres;Password=db2qw2323D;
+      - ConnectionStrings__UserSevice=Host=userservice-db;Port=5432;Database=dev_userservice;Username=postgres;Password=db2qw2323D;
     depends_on:
       - userservice-db
 

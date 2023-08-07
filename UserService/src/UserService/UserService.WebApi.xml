@@ -249,16 +249,28 @@
         <member name="M:UserService.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="T:UserService.Migrations.IdentityChanges">
+        <member name="T:UserService.Migrations.test">
             <inheritdoc />
         </member>
-        <member name="M:UserService.Migrations.IdentityChanges.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:UserService.Migrations.test.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:UserService.Migrations.IdentityChanges.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:UserService.Migrations.test.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:UserService.Migrations.IdentityChanges.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:UserService.Migrations.test.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:UserService.Migrations.MissingRolesTable">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.MissingRolesTable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.MissingRolesTable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UserService.Migrations.MissingRolesTable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:UserService.Protos.UserServiceReflection">

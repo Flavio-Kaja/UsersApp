@@ -34,6 +34,7 @@ public sealed class UserDbContext : IdentityDbContext<User, Role, Guid>
     #region DbSet Region - Do Not Delete
     public DbSet<UserRole> UserRoles { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Role> Roles { get; set; }
     public DbSet<RolePermission> RolePermissions { get; set; }
     #endregion DbSet Region - Do Not Delete
 

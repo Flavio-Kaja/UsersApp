@@ -11,12 +11,7 @@ builder.Host.AddLoggingConfiguration(builder.Environment);
 
 builder.ConfigureServices();
 var app = builder.Build();
-using (var seedScope = app.Services.CreateScope())
-{
-    // Resolve the seed service and run the initialize method within the scope
-    var seeder = seedScope.ServiceProvider.GetRequiredService<ISeedDataService>();
-    seeder.Initialize().GetAwaiter().GetResult();
-}
+
 using var scope = app.Services.CreateScope();
 if (builder.Environment.IsDevelopment())
 {
